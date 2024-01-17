@@ -35,4 +35,4 @@ EOF
 
 sudo chmod +x /home/ubuntu/metrics.sh
 
-sudo crontab -l 2>/dev/null; echo "*/1 * * * * /home/ubuntu/metrics.sh" | crontab -
+sudo echo "$(echo '*/2 * * * * /home/ubuntu/metrics.sh' ; crontab -l 2>/dev/null)" | crontab
