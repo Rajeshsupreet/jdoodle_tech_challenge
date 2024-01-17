@@ -1,5 +1,5 @@
 module "aws_lb" {
-  source = "./modules/aws_elb"
+  source                     = "./modules/aws_elb"
   name                       = var.instance_name
   internal                   = var.lb_internal
   load_balancer_type         = var.lb_load_balancer_type
