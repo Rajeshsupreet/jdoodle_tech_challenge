@@ -72,16 +72,16 @@ This Terraform root module demonstrates deployment of autoscaling Group in AWS
 | <a name="input_lb_load_balancer_type"></a> [lb\_load\_balancer\_type](#input\_lb\_load\_balancer\_type) | Application or Network type LB | `string` | `"application"` | no |
 | <a name="input_lb_name"></a> [lb\_name](#input\_lb\_name) | LB name | `string` | `"jdoodle_lb"` | no |
 | <a name="input_lb_protocol"></a> [lb\_protocol](#input\_lb\_protocol) | lb\_protocol HTTP (ALB) or TCP (NLB) | `string` | `"HTTP"` | no |
-| <a name="input_lb_security_groups"></a> [lb\_security\_groups](#input\_lb\_security\_groups) | LB security groups | `list(string)` | <pre>[<br>  "sg-05e1e2bf1e4d2291f"<br>]</pre> | no |
-| <a name="input_lb_subnets"></a> [lb\_subnets](#input\_lb\_subnets) | LB subnets | `list(string)` | <pre>[<br>  "subnet-0709b36d516cd45f4",<br>  "subnet-073e6fcdc8b5b2d9f"<br>]</pre> | no |
+| <a name="input_lb_security_groups"></a> [lb\_security\_groups](#input\_lb\_security\_groups) | LB security groups | `list(string)` | <pre>[<br>  "sg-XXXXXXXX"<br>]</pre> | no |
+| <a name="input_lb_subnets"></a> [lb\_subnets](#input\_lb\_subnets) | LB subnets | `list(string)` | <pre>[<br>  "subnet-XXXXXXXX",<br>  "subnet-XXXXXXXX"<br>]</pre> | no |
 | <a name="input_lb_target_port"></a> [lb\_target\_port](#input\_lb\_target\_port) | lb\_target\_port 80 or 443 | `number` | `80` | no |
 | <a name="input_lb_target_tags_map"></a> [lb\_target\_tags\_map](#input\_lb\_target\_tags\_map) | Tag map for the LB target resources | `map(string)` | `{}` | no |
 | <a name="input_lb_target_type"></a> [lb\_target\_type](#input\_lb\_target\_type) | Target type ip (ALB/NLB), instance (Autosaling group) | `string` | `"instance"` | no |
 | <a name="input_max_size"></a> [max\_size](#input\_max\_size) | Maximun size of the Auto Scaling Group, | `number` | `5` | no |
 | <a name="input_min_size"></a> [min\_size](#input\_min\_size) | Minimum size of the Auto Scaling Group, | `number` | `2` | no |
 | <a name="input_target_group_arns"></a> [target\_group\_arns](#input\_target\_group\_arns) | ARNs, for use with Application or Network Load Balancing, | `list(string)` | `[]` | no |
-| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | vpc\_id | `string` | `"vpc-09bba8d1a37cfcd4d"` | no |
-| <a name="input_vpc_security_group_ids"></a> [vpc\_security\_group\_ids](#input\_vpc\_security\_group\_ids) | A list of security group names to associate with. If you are creating Instances in a VPC, | `list(string)` | <pre>[<br>  "sg-05e1e2bf1e4d2291f"<br>]</pre> | no |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | vpc\_id | `string` | `"vpc-XXXXXXXX"` | no |
+| <a name="input_vpc_security_group_ids"></a> [vpc\_security\_group\_ids](#input\_vpc\_security\_group\_ids) | A list of security group names to associate with. If you are creating Instances in a VPC, | `list(string)` | <pre>[<br>  "sg-XXXXXXXX"<br>]</pre> | no |
 
 # 7. Deployment
 ### GitHub Actions (Automated Process) -- Recommended
