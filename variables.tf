@@ -149,7 +149,7 @@ variable "desired_capacity" {
 variable "asg_health_check_type" {
   description = " Type of Helath check ,"
   type        = string
-  default     = "ELB"
+  default     = "EC2"
 
 }
 
