@@ -22,6 +22,15 @@ resource "aws_launch_template" "ec2_launch_template" {
   monitoring {
     enabled = true
   }
+
+  tag_specifications {
+    resource_type = "instance"
+
+    tags = {
+      Name = "jdoodle_template"
+    }
+  }
+
 }
 
 resource "aws_autoscaling_group" "asg" {
@@ -69,13 +78,10 @@ resource "aws_cloudwatch_metric_alarm" "scale_up_alarm" {
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "LoadAverage5min"
-  namespace           = "AWS/EC2"
-  period              = "30"
-  statistic           = "SampleCount"
+  namespace           = "AWS/AutoScaling"
+  period              = "300"
+  statistic           = "Average"
   threshold           = "75"
-  dimensions = {
-    "AutoScalingGroupName" = aws_autoscaling_group.asg.name
-  }
   actions_enabled = true
   alarm_actions   = [aws_autoscaling_policy.scale_up.arn]
 }
@@ -97,13 +103,10 @@ resource "aws_cloudwatch_metric_alarm" "scale_down_alarm" {
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "LoadAverage5min"
-  namespace           = "AWS/EC2"
-  period              = "30"
-  statistic           = "SampleCount"
+  namespace           = "AWS/AutoScaling"
+  period              = "300"
+  statistic           = "Average"
   threshold           = "50"
-  dimensions = {
-    "AutoScalingGroupName" = aws_autoscaling_group.asg.name
-  }
   actions_enabled = true
   alarm_actions   = [aws_autoscaling_policy.scale_down.arn]
 }
